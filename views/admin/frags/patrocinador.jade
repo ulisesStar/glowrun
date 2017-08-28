@@ -1,0 +1,14 @@
+.patrocinador(ng-init="obtenerPatrocinador()")
+    md-card
+        md-card-content
+            div(layout="row")
+                form(flex="50")
+                    md-input-container
+                        label
+                        input(ng-model="patrocinador.nombre")
+                    md-list
+                        md-list-item(ng-repeat="carrera in patrocinador.Carreras")
+                            .md-list-item-text
+                                h4 {{carrera.nombre}}
+                div(flex="50")
+                    img(ng-src="{{patrocinador.imagen}}" style="height:200px")

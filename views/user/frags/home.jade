@@ -1,0 +1,44 @@
+#{name}
+
+.home(layout="row")
+	.right(flex)
+		.right-content
+			.encabezado
+				h1 Dashboard
+				h2 {{usuario.nombre}} este es tu dashboard, para realizar un pago sigue las siguientes instrucciones
+			md-list
+				md-list-item
+					.numero
+						p 1
+					.md-list-item-text
+						p Selecciona una carrera
+				
+				md-list-item
+					.numero
+						p 2
+					.md-list-item-text
+						p Ingresa tus datos de pago
+						
+				md-list-item
+					.numero
+						p 3
+					.md-list-item-text
+						p Apunta tu Folio, también puedes revisarlo en cualquier momento en la sección de pagos
+						
+				md-list-item
+					.numero
+						p 4
+					.md-list-item-text
+						p El dia de la carrera podrás cambiar tu folio por un kit Glow
+						
+					
+	.left(ng-init="obtenerCarreras()" flex)
+		.left-content
+			.encabezado
+				h1 Proximas Carreras
+			md-progress-linear(md-mode="indeterminate" ng-disabled="!loadingcarreras" ng-if="loadingcarreras")
+			md-list(ng-if="!loadingcarreras")
+				md-list-item(ng-repeat="carrera in proximos" ng-click="irOrden(carrera)")
+					h4 {{carrera.nombre}}
+				.md-secondary
+					p {{carrera.fecha}}

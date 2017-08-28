@@ -1,0 +1,14 @@
+.ciudades(ng-init="obtenerCarreras()")
+    md-card
+        md-toolbar
+            .md-toolbar-tools
+                h1 Carreras
+                span(flex)
+                md-button(ui-sref="crearCarrera")
+                    md-icon add
+
+    md-card
+        md-list
+            md-list-item(ng-repeat="carrera in carreras" ui-sref="carrera({idCarrera:carrera.id})")
+                .md-list-item-text
+                    h4 {{carrera.nombre}}

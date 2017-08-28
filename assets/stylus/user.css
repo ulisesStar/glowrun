@@ -1,0 +1,124 @@
+.home {
+  height: 100vh;
+  display: flex;
+}
+.home .home-container {
+  margin: auto;
+}
+.usuario md-toolbar {
+  background-color: #000;
+}
+.usuario .right .right-content {
+  padding: 10%;
+}
+.usuario .right .right-content h1 {
+  font-size: 60px;
+  border: 5px solid #000;
+  padding: 10px;
+  margin: 10px;
+}
+.usuario .right .right-content md-list md-list-item {
+  padding: 5px 0;
+}
+.usuario .right .right-content md-list md-list-item .numero {
+  border: 5px solid #000;
+  padding: 10px;
+  display: flex;
+}
+.usuario .right .right-content md-list md-list-item .numero p {
+  margin: auto;
+  font-size: 25px;
+}
+.usuario .right .right-content md-list md-list-item .md-list-item-text {
+  padding: 0 10px;
+}
+.usuario .left .left-content {
+  padding: 10%;
+  width: 100%;
+}
+.usuario .left .left-content .encabezado {
+  padding: 40px 0;
+}
+.usuario .left .left-content .encabezado h4 {
+  font-size: 30px;
+}
+.usuario .left .left-content md-list md-list-item {
+  border: 5px solid #000;
+}
+.orden h1 {
+  border-bottom: 5px solid #000;
+  margin: 70px 0 10px 0;
+}
+.orden .encabezado .carrera,
+.orden .encabezado .precio {
+  border: 5px solid #000;
+  padding: 10px 30px;
+  font-size: 30px;
+  font-weight: 800;
+}
+.orden .encabezado .precio {
+  background-color: #000;
+  color: #fff;
+}
+.orden .ok {
+  background-color: #000;
+  border-radius: 0px;
+  height: 50px;
+}
+.orden .ok md-icon {
+  color: #fff;
+}
+md-progress-circular {
+  margin: auto;
+}
+md-progress-circular path {
+  stroke: #fff;
+}
+.ng-hide-add.ng-hide-add-active {
+  -webkit-animation: fadeOut 1000ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation: fadeOut 1000ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+.ng-hide-remove.ng-hide-remove-active {
+  -webkit-animation: fadeIn 1000ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation: fadeIn 1000ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+.page.ng-enter {
+  -webkit-animation: bounceInUp 1000ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation: bounceInUp 1000ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+.page.ng-leave {
+  -webkit-animation: bounceOutDown 1000ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation: bounceOutDown 1000ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+.left.ng-enter {
+  -webkit-animation: fadeInLeft 1000ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation: fadeInLeft 1000ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+.left.ng-leave {
+  -webkit-animation: fadeOutRight 1000ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation: fadeOutRight 1000ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}

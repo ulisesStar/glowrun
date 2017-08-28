@@ -1,0 +1,50 @@
+.carrera
+    md-card(ng-init="obtenerCarrera()")
+        md-toolbar
+            .md-toolbar-tools
+                h4 Información básica
+                span(flex)
+                md-button(ng-click="editar = !editar")
+                    md-icon edit
+        md-card-content
+            form(ng-submit="actualizarCarrera(carrera)" layout="column")
+                .form-section(layout="row")
+                    md-input-container(flex)
+                        label Nombre de la carrera
+                        input(ng-model="carrera.nombre" ng-disabled="!editar")
+                    md-input-container(flex)
+                        label Fecha
+                        md-datepicker(ng-model="carrera.fecha" ng-disabled="!editar")
+                    md-input-container(flex ng-init="obtenerCiudades()")
+                        md-icon location_city
+                        label Ciudad
+                        md-select(ng-model="carrera.IdCiudad" ng-disabled="!editar")
+                            md-option(ng-repeat="ciudad in ciudades" ng-value="ciudad.id") {{ciudad.nombre}}
+                .form-section(layout="row")
+                    md-input-container(flex)
+                        md-icon attach_money
+                        label Precio
+                        input(ng-model="carrera.precio" ng-disabled="!editar")
+                    md-input-container(flex)
+                        md-icon videocam
+                        label Video
+                        input(ng-model="carrera.video" ng-disabled="!editar")
+                md-button(type="submit" ng-if="editar" md-colors="{background: 'green'}" flex) Guardar información básica 
+                    md-icon save
+                
+    md-card(ng-init="obtenerImagenes(carrera.id)")
+        md-toolbar
+            .md-toolbar-tools
+                h4 Imagenes
+        md-grid-list(md-cols="4" md-row-height="200px")
+            md-grid-tile(md-colspan="2" md-rowspan="2" ng-if="editar") 
+                .agregarimagen(layout="column" ng-init="Dropify()")
+                    input.dropify(ng-model="foto" type="file" base-sixty-four-input data-default-file="Imagen del producto" maxsize="5120" data-max-file-size="600K" accept="image/*" style="padding:0px;")
+                    md-button(ng-click="crearImagen(foto.base64)" md-colors="{background: 'green'}")
+                        md-icon add
+            md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="imagen in imagenes" style="background-image:url({{imagen.imagen}})")
+                md-grid-tile-footer(ng-if="editar")
+                    md-button(ng-click="eliminarImagen($index, imagen.id)" md-colors="{background: 'red'}")
+                        md-icon delete
+                    md-button(ng-click="actualizarPortada(carrera.id , imagen.id)" md-colors="imagen.portada === 1 ? {background : 'green'} : {background : 'red'}")
+                        md-icon wallpaper

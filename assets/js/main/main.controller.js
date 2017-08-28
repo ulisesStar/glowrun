@@ -1,8 +1,66 @@
-app.controller('mainCtrl', function ($scope, $rootScope, $http, mdDialog) {
+app.controller('mainCtrl', function ($scope, $rootScope, $http, $state,  $mdDialog,mdDialog, AuthService, $localStorage) {
+
+    $localStorage.usuario = false;
+    $localStorage.interes = false;
+
+	$scope.mdDialogmenu = function(){
+		mdDialog.mostrardialog('menu', 'mainCtrl', $scope.customFullscreen);
+	}
+
+    $scope.hide = function() {
+        $mdDialog.hide();
+    };
+
+    $scope.registro = function(usuario){
+        AuthService.registro(usuario);
+    }
+
+    $scope.login = function(x){
+        AuthService.login(x);
+        console.log(x);
+    }
+
+    $scope.interes = function(carrera){
+        $scope.iniciosesion();
+    }
+
+    var self = this;
+    self.simulateQuery = false;
+    self.isDisabled = false;
+
+    self.repos = [];
+
+    self.querySearch = querySearch;
+
+    function querySearch(query) {
+        var results = query
+                ? self.repos.filter(createFilterFor(query))
+                : self.repos,
+            deferred;
+        if (self.simulateQuery) {
+            deferred = $q.defer();
+            $timeout(function() {
+                deferred.resolve(results);
+            }, Math.random() * 1000, false);
+            return deferred.promise;
+        } else {
+            return results;
+        }
+    }
+
+    self.searchTextChange = searchTextChange;
+    self.selectedItemChange = selectedItemChange;
+
+    function searchTextChange(text) {}
+    function selectedItemChange(item) {}
 
     $scope.iniciosesion = function (ev) {
-        mdDialog.mostrardialog('login', $scope.customFullscreen, ev);
+        mdDialog.mostrardialog('login', 'mainCtrl', $scope.customFullscreen);
     };
+
+    $scope.registrarse = function() {
+        mdDialog.mostrardialog('registro', 'mainCtrl', $scope.customFullscreen);
+    }
 
     $scope.botones = [{
         title: 'Home',
@@ -31,21 +89,10 @@ app.controller('mainCtrl', function ($scope, $rootScope, $http, mdDialog) {
         sref: 'green'
     }];
 
+
     // Slider
 
-    $scope.images = [{ title: 'Creativity', src: 'http://www.voicehacker.co.uk/wp-content/uploads/2014/07/meet-the-artist-4.jpg' }, { title: 'Goals', src: 'http://www.myrkothum.com/wp-content/uploads/2014/05/reach-your-goals.jpg' }, { title: 'Effectiveness', src: 'http://www.basketrevolution.es/media/wysiwyg/basket.jpg' }, { title: 'Passion', src: 'http://cdn-media-4.lifehack.org/wp-content/files/2014/05/15-Things-Truly-Passionate-People-Do-Differently.jpg' }];
 
-    $http.get('/data/personasData').then(function (data) {
-        $scope.personas = data.data;
-        console.log(data.data);
-    });
-
-    $scope.nuevaPersona = function(data){
-        $http.post('/data/personasData').then(function (data) {
-            $scope.persona = data.data;
-            console.log(data.data);
-        });
-    }
 
     //
     // $http.get('/data/dataImagen').then(function (data) {

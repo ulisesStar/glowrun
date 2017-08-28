@@ -1,7 +1,7 @@
 var main = require('./main');
 
 
-main.set('port', (process.env.PORT || 5000));
+main.set('port', (process.env.PORT || 8080));
 
 //For avoidong Heroku $PORT error
 main.get('/', function(request, response) {

@@ -4,9 +4,12 @@ var ex = function(conector) {
     var sequelize = conector.sequelize;
 
     var Usuario = sequelize.define('usuario', {
-        Nombre: Sequelize.STRING,
+        nombre: Sequelize.STRING,
         correo: Sequelize.STRING,
-        password: Sequelize.STRING
+        password: Sequelize.STRING,
+        conekta_id: Sequelize.STRING,
+		fb_id: Sequelize.STRING,
+		google_id: Sequelize.STRING
     })
 
     return Usuario;

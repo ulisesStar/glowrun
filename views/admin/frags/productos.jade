@@ -1,0 +1,14 @@
+.productos(ng-init="obtenerProductos()")
+    md-card
+        md-toolbar
+            .md-toolbar-tools
+                h4 Productos
+                span(flex)
+                md-button(ng-click="mdDialogTarjeta()")  
+                    md-icon add
+
+    md-card
+        md-list
+            md-list-item(ng-repeat="producto in productos")
+                .md-list-item-text
+                    h4 {{producto.nombre}}

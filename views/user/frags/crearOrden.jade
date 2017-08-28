@@ -1,0 +1,32 @@
+.orden(layout="row" layout-align="center center" ng-init="obtenerTodo()")
+	.div(flex="70" layout="column")
+		
+		.encabezado
+			h1 {{usuario.nombre}} estas apunto de registarte a la carrera
+			div(layout="row" layout-align="space-between center")
+				.carrera
+					p {{carrera.nombre}} el {{carrera.fecha | date:'yyyy-MM-dd HH:mm:ss' }}
+				.precio
+					p ${{carrera.precio}} MXN
+		.pago
+			h1 Introduce un metodo de pago 
+			form.md-padding(ng-submit="GenerarOrden(tarjeta, usuario, carrera)" layout="column")
+				md-input-container
+					label Nombre del dueño
+					input(ng-model="tarjeta.card.name" ng-disabled="procesando")
+				md-input-container
+					label Numero de la tarjeta
+					input(ng-model="tarjeta.card.number" ng-disabled="procesando")
+				div(layout="row")
+					md-input-container(flex)
+						label MM
+						input(ng-model="tarjeta.card.exp_month" ng-disabled="procesando")
+					md-input-container(flex)
+						label YYYY
+						input(ng-model="tarjeta.card.exp_year" ng-disabled="procesando")
+					md-input-container(flex)
+						label Codigo de seguridad
+						input(ng-model="tarjeta.card.cvc" ng-disabled="procesando")
+				md-button.ok(md-color="{background: 'green'}" type="submit")
+					md-progress-circular(ng-if="procesando" ng-disabled="!procesando")
+					md-icon done

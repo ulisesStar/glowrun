@@ -1,0 +1,10 @@
+md-dialog.orden
+    form(layout="column" ng-submit="crearOrden(orden)")
+        md-input-container
+            label descripcion
+            input(ng-model="orden.producto")
+        md-input-container
+            label monto
+            input(ng-model="orden.monto")
+        md-button(md-color="{background: 'green'}" type="submit")
+            md-icon done

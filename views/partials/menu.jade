@@ -1,0 +1,9 @@
+md-dialog.menu(layout="column")
+    .botones(layout="row" layout-align="center end")
+        md-button(ng-click="hide()")
+            md-icon clear
+    .menu-container(layout="row" layout-align="center center")
+        .menu-content(layout="column")
+            md-button.glowboton Home
+            md-button(ui-sref="carreras" ng-click="hide();").glowboton Carreras
+            md-button.glowboton Nosotros

@@ -1,0 +1,94 @@
+.home
+    height: 100vh;
+    display: flex;
+    .home-container
+        margin: auto;
+
+.usuario
+    md-toolbar
+        background-color: black;
+    .right
+        .right-content
+            padding: 10%;
+            h1
+                font-size: 60px;
+                border: 5px solid black;
+                padding: 10px;
+                margin: 10px;
+            md-list
+                md-list-item
+                    padding: 5px 0;
+                    .numero
+                        border: 5px solid black;
+                        padding: 10px;
+                        display: flex;
+                        p
+                            margin: auto;
+                            font-size: 25px;
+                    .md-list-item-text
+                        padding: 0 10px;
+
+    .left
+        .left-content
+            padding: 10%;
+            width: 100%;
+            .encabezado
+                padding: 40px 0;
+                h4
+                    font-size: 30px;
+            md-list
+                md-list-item
+                    border: 5px solid black;
+
+.orden
+    h1
+        border-bottom: 5px solid black;
+        margin: 70px 0 10px 0;
+    .encabezado
+        .carrera, .precio
+            border: 5px solid black;
+            padding: 10px 30px;
+            font-size: 30px;
+            font-weight: 800;
+        .precio
+            background-color: black;
+            color: white;
+
+    .ok
+        background-color: black;
+        border-radius: 0px;
+        height: 50px;
+        md-icon
+            color: white;
+		md-progress-circular
+			margin:auto;
+			path
+				stroke: white;
+
+
+animation(animation)
+    -webkit-animation animation 1000ms cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    animation animation 1000ms cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    -webkit-transition all 1s ease-in-out
+    -moz-transition all 1s ease-in-out
+    -o-transition all 1s ease-in-out
+    transition all 1s ease-in-out
+
+.ng-hide-add.ng-hide-add-active
+    animation fadeOut
+
+
+.ng-hide-remove.ng-hide-remove-active
+    animation fadeIn
+
+.page
+    &.ng-enter
+        animation bounceInUp
+    &.ng-leave
+        animation bounceOutDown
+
+.left
+    &.ng-enter
+        animation fadeInLeft
+    &.ng-leave
+        animation fadeOutRight

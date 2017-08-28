@@ -1,0 +1,14 @@
+.patrocinadores(ng-init="obtenerPatrocinadores()")
+    md-card
+        md-toolbar
+            .md-toolbar-tools
+                h1 Patrocinadores
+                span(flex)
+                md-button(ui-sref="crearPatrocinador")
+                    md-icon add
+    md-card
+        md-list
+            md-list-item(ng-repeat="patrocinador in patrocinadores" ng-click="irPatrocinador(patrocinador)")
+                img.md-avatar(ng-src="{{patrocinador.imagen}}")
+                .md-list-item-text
+                    h4 {{patrocinador.nombre}}

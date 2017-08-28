@@ -1,18 +1,24 @@
-.objeto(tweeninit)
-.animacion(layout="row" layout-align="center center" botones)
-    .texto-container
-        .texto
-            #texto1
-                h1 La primera impresión se da a los 4 segundos
-        .texto
-            #texto2
-                h1 En una página de internet es igual
-        .texto
-            #texto3
-                h1 Nuestas páginas web hechas a medida de cada cliente
-        .texto
-            #texto4
-                h1 y estan optimizadas para atraer clientes que buscan lo que ofreces
-        .texto
-            #texto5
-                h1 Como tu que buscabas una página de internet
+section.section1(layout="row" layout-align="center center" style="background-image:url(img/20155871_862061647291740_5678529796270798499_n.png)")
+    .left(layout-fill)
+    .right(layout-fill layout="row" layout-align="center center")
+        .texto-container
+            h1 Una experiencia única
+            md-button.glowboton(ng-click="iniciosesion($event)") encuentra tu carrera e inscribete
+md-divider
+section.section2(layout="row")
+    .left(flex="50" layout="row" layout-align="center center")
+        .texto-container
+            h1 3 años haciendo recoriendo mexico
+            md-button.glowboton(ng-click="iraCarreras()") Carreras
+    .right(flex)
+        div(layout-fill)
+            ui-gmap-google-map(center='map.center' zoom='map.zoom' options="options")
+                ui-gmap-marker(coords="marker.coordenadas" options="markeroptions" idkey="$index" ng-repeat="marker in markers")
+                    ui-gmap-window(isIconVisibleOnClick="true")
+                        p algo
+md-divider
+section.section3(layout="row")
+    .video-container(layout="column")
+        md-button
+            md-icon
+        h4 Reproduce el video

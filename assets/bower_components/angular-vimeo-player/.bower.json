@@ -1,0 +1,44 @@
+{
+  "name": "angular-vimeo-player",
+  "description": "",
+  "version": "0.3.1",
+  "authors": [
+    "Philip Knape <philip.knape@gmail.com>"
+  ],
+  "license": "MIT",
+  "main": [
+    "dist/angular-vimeo.min.js",
+    "bower.json"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "keywords": [
+    "angular",
+    "vimeo"
+  ],
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-sanitize": "~1.4.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.0",
+    "angular-route": "~1.4.0"
+  },
+  "moduleType": [],
+  "homepage": "https://github.com/Houseofradon/angular-vimeo",
+  "_release": "0.3.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.3.1",
+    "commit": "8220294364ba2382adf176d2d3aa5089d69dd42a"
+  },
+  "_source": "https://github.com/Houseofradon/angular-vimeo.git",
+  "_target": "^0.3.1",
+  "_originalSource": "angular-vimeo-player",
+  "_direct": true
+}

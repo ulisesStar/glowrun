@@ -1,0 +1,11 @@
+.carrera
+    section(layout="row")
+        .left(flex="60" layout="column")
+            .titulo
+                h1
+                    md-button.glowboton(ng-click="interes(carrera.id)" ng-if="status === 'proximo'") Inscribete y paga en linea
+                    |   {{carrera.fecha | date:"MM/dd/yyyy"}}
+                h1.nombre {{carrera.nombre}}
+        .right(flex layout="row" layout-align="center center")
+            .right-content(flex)
+                vimeo(settings="vimeoConfig")

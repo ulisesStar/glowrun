@@ -1,13 +1,28 @@
 var express = require('express');
 var routeUsuario = express.Router();
 
-var x = require("../controllers/controllerPersona");
+var x = require("../controllers/controllerUsuario");
 
 routeUsuario.route('/data/usuario')
         .get(x.read)
         .post(x.create);
 
+routeUsuario.route('/data/registro')
+        .post(x.registro);
+
+routeUsuario.route('/data/login')
+        .post(x.login);
+
+routeUsuario.route('/data/token')
+        .post(x.token);
+
 routeUsuario.route('/data/usuario/:id')
         .get(x.read);
+
+routeUsuario.route('/login/facebook')
+        .get(x.facebook);
+
+routeUsuario.route('/login/facebook/callback')
+        .get(x.facebookcallback);
 
 module.exports = routeUsuario;

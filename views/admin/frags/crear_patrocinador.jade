@@ -1,0 +1,20 @@
+.nuevopatrocinador
+    md-card
+        md-toolbar
+            .md-toolbar-tools
+                h4 Nuevo patrocinador
+                
+        md-card-content
+            form(layout="row" ng-submit="crearPatrocinador(patrocinador);")
+                div(flex layout="column")
+                    md-input-container(flex)
+                        label Nombre del nuevo patrocinador
+                        input(ng-model="patrocinador.nombre")
+                    md-input-container(flex)
+                        label Elige una carrera
+                        md-select(ng-model="patrocinador.idcarrera")
+                            md-option(ng-repeat="carrera in carreras" ng-value="{{carrera.id}}") {{carrera.nombre}}
+                    md-button(flex md-colors="{background: 'green'}" type="submit")
+                        md-icon done
+                .md-padding(flex ng-init="Dropify()")
+                    input.dropify(ng-model="patrocinador.imagen" type="file" base-sixty-four-input data-default-file="Imagen del producto" maxsize="5120" data-max-file-size="600K" accept="image/*" style="padding:0px;")

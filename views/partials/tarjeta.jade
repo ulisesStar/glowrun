@@ -1,0 +1,22 @@
+md-toolbar
+    .md-toolbar-tools
+        h4 Agregar tarjeta
+form.md-padding(ng-submit="nuevaTarjeta(tarjeta)")
+    md-input-container
+        label Nombre del dueño
+        input(ng-model="tarjeta.nombre")
+    md-input-container
+        label Numero de la tarjeta
+        input(ng-model="tarjeta.numero")
+    div(layout="row")
+        md-input-container(flex)
+            label MM
+            input(ng-model="tarjeta.month")
+        md-input-container(flex)
+            label YYYY
+            input(ng-model="tarjeta.year")
+        md-input-container(flex)
+            label Codigo de seguridad
+            input(ng-model="tarjeta.bin")
+    md-button(type="submit" md-colors="{background: 'green'}")
+        md-icon done

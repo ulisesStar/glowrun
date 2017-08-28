@@ -1,0 +1,68 @@
+.carreras(ng-init="obtenerCarreras(); obtenerCiudades();")
+
+    div(layout="row" layout-align="center center")
+    
+        div(layout="row" flex="70")
+
+            md-autocomplete(flex="70"
+
+            ng-disabled="ctrl.isDisabled"
+            md-no-cache="ctrl.noCache"
+
+            md-search-text="ctrl.Buscar"
+            md-search-text-change="ctrl.searchTextChange(ctrl.Buscar)"
+
+
+            md-selected-item="ctrl.proveedorSeleccionado"
+            md-selected-item-change="ctrl.selectedItemChange(item)"
+
+            md-items="item in carreras"
+            md-item-text="item.nombre"
+
+            md-min-length="0"
+            placeholder="Selecciona una carrera")
+            
+                md-item-template
+                    span {{item.fecha}} - {{item.nombre}}
+                    
+            md-autocomplete(flex="30"
+
+            ng-disabled="ctrl.isDisabled"
+            md-no-cache="ctrl.noCache"
+
+            md-search-text="ctrl.Buscar"
+            md-search-text-change="ctrl.searchTextChange(ctrl.Buscar)"
+
+
+            md-selected-item="ctrl.proveedorSeleccionado"
+            md-selected-item-change="ctrl.selectedItemChange(item)"
+
+            md-items="item in ciudades"
+            md-item-text="item.nombre"
+
+            md-min-length="0"
+            placeholder="Selecciona una carrera")
+            
+                md-item-template
+                    span {{item.fecha}} - {{item.nombre}}
+            
+    div(layout="row" layout-align="center center")
+        .contenido(flex="70")
+        
+            h2(ng-class="loading ? 'loading' : 'sinloading'") Proximos
+            md-progress-linear(md-mode="indeterminate" ng-disabled="!loading" ng-if="loading")
+                        
+            md-grid-list(md-cols="4" md-row-height="200px")
+                md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="carrera in proximos  | filter: ctrl.Buscar" style="background-image:url({{carrera.imagenes[0].imagen}})" ng-click="irCarrera(carrera)" ng-init="hover = false"  ng-mouseover="hover = true" ng-mouseleave="hover = false"  ng-class="hover ? 'conHover' : 'sinHover'")
+                    .content
+                        h1 {{carrera.nombre}}
+                        p {{carrera.fecha | date:"dd / MMMM / yyyy" }}
+
+            h2 Anteriores carreras
+            md-progress-linear(md-mode="indeterminate" ng-disabled="!loading" ng-if="loading")
+                        
+            md-grid-list(md-cols="4" md-row-height="200px")
+                md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="carrera in anteriores  | filter: ctrl.Buscar" style="background-image:url({{carrera.imagenes[0].imagen}})" ng-click="irCarrera(carrera)" ng-init="hover = false"  ng-mouseover="hover = true" ng-mouseleave="hover = false"  ng-class="hover ? 'conHover' : 'sinHover'")
+                    .content
+                        h1 {{carrera.nombre}}
+                        p {{carrera.fecha | date:"dd / MMMM / yyyy" }}

@@ -1,0 +1,14 @@
+.ciudades(ng-init="obtenerCiudades()")
+    md-card
+        md-toolbar
+            .md-toolbar-tools
+                h1 Ciudades
+                span(flex)
+                md-button(ng-click="dialogCiudad()")
+                    md-icon add
+
+    md-card
+        md-list
+            md-list-item(ng-repeat="ciudad in ciudades")
+                .md-list-item-text
+                    h4 {{ciudad.nombre}}

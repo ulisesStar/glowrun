@@ -1,0 +1,46 @@
+md-toolbar {
+  background-color: #000 !important;
+}
+.nuevacarrera form,
+.carrera form {
+  margin: 0px;
+}
+.nuevacarrera form .form-section,
+.carrera form .form-section {
+  margin: 40px 0px;
+}
+.nuevacarrera form .form-section md-input-container,
+.carrera form .form-section md-input-container {
+  margin: 0px;
+}
+.nuevacarrera form .form-section md-input-container .md-errors-spacer,
+.carrera form .form-section md-input-container .md-errors-spacer {
+  min-height: 0px;
+}
+.nuevacarrera md-grid-tile,
+.carrera md-grid-tile {
+  background-size: cover;
+  background-position: center center;
+}
+.nuevacarrera md-grid-tile .agregarimagen,
+.carrera md-grid-tile .agregarimagen,
+.nuevacarrera md-grid-tile .dropify-wrapper,
+.carrera md-grid-tile .dropify-wrapper {
+  height: 100%;
+  width: 100%;
+}
+.nuevacarrera md-grid-tile .agregarimagen .dropify-wrapper,
+.carrera md-grid-tile .agregarimagen .dropify-wrapper,
+.nuevacarrera md-grid-tile .dropify-wrapper .dropify-wrapper,
+.carrera md-grid-tile .dropify-wrapper .dropify-wrapper {
+  padding: 0px;
+}
+.nuevacarrera md-grid-tile .md-button,
+.carrera md-grid-tile .md-button {
+  border-radius: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+md-sidenav md-list md-list-item md-icon {
+  margin: auto 20px;
+}

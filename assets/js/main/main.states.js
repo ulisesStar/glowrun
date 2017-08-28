@@ -12,87 +12,58 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
 		url: '/',
 		views: {
 			'main': {
-				templateUrl: '/main/home'
+				templateUrl: '/main/home',
+				controller: 'homeCtrl as ctrl'
 			}
-		}
-	}).state('user', {
-		url: '/user',
-		views: {
-			'main': {
-				templateUrl: '/user/main'
-			}
-		}
-	}).state('user.profile', {
-		url: '/profile',
-		views: {
-			'main': {
-				templateUrl: '/user/profile'
-			}
-		}
-	}).state('user.paymentstatus', {
-		url: '/paymentstatus',
-		views: {
-			'main': {
-				templateUrl: '/main/user/paymentstatus'
-			}
-		}
-	}).state('user.paymentmethod', {
-		url: '/metododepago',
-		views: {
-			'main': {
-				templateUrl: '/main/user/paymentmethod'
-			}
-		}
-	}).state('user.historical', {
-		url: '/pagohistorico',
-		views: {
-			'main': {
-				templateUrl: '/main/user/historical'
-			}
-		}
-	}).state('persona', {
-		url: '/persona/:idPersona',
-		views: {
-			'main': {
-				templateUrl: '/catalogo/persona',
-				controller: function ($scope, $stateParams, $http) {
-					var idPersona = $stateParams.idPersona;
-					$http.get('/data/personasData/' + idPersona ).then(function(persona){
-						// album.persona = persona.data;
-						$scope.personaSeleccionada = persona.data;
-						console.log($scope.personaSeleccionada);
-					});
-				}
+		},
+        resolve: {
+            loadMyCtrl: [
+                '$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['ozHome']);
+                }
+            ]
+        }
+	})
 
-			}
-		}
-	}).state('yellow', {
-		url: '/yellow',
+	.state('carreras', {
+		url: '/carreras',
 		views: {
 			'main': {
-				templateUrl: '/colors/yellow'
+				templateUrl: '/main/carreras',
+				controller: 'carrerasCtrl as ctrl'
 			}
-		}
-	}).state('purple', {
-		url: '/purple',
+		},
+        resolve: {
+            loadMyCtrl: [
+                '$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['ozMainCarreras']);
+                }
+            ]
+        }
+	})
+	.state('carrera', {
+		url: '/carrera',
+		params: {
+			'carrera' : null
+		},
 		views: {
 			'main': {
-				templateUrl: '/colors/purple'
+				templateUrl: '/main/carrera',
+				controller: 'carreraCtrl as ctrl'
 			}
-		}
-	}).state('blue', {
-		url: '/blue',
-		views: {
-			'main': {
-				templateUrl: '/colors/blue'
-			}
-		}
-	}).state('green', {
-		url: '/green',
-		views: {
-			'main': {
-				templateUrl: '/colors/green'
-			}
-		}
+		},
+        resolve: {
+			check: function($stateParams){
+				console.log($stateParams);
+			},
+            loadMyCtrl: [
+                '$ocLazyLoad',
+                function($ocLazyLoad) {
+                    return $ocLazyLoad.load(['ozMainCarrera']);
+                }
+            ]
+        }
 	});
 }]);

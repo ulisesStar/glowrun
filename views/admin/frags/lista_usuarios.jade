@@ -1,0 +1,9 @@
+.usuarios(ng-init="obtenerUsuarios()")
+    md-card
+        md-toolbar
+            .md-toolbar-tools
+                h4 Usuarios
+        md-list
+            md-list-item(ng-repeat="usuario in usuarios"  ui-sref="usuario({idUsuario:usuario.id})")
+                .md-list-item-text
+                    h4 {{usuario.nombre}}

@@ -1,0 +1,15 @@
+.usuario(ng-init="obtenerUsuario();")
+md-card
+    md-toolbar
+        .md-toolbar-tools
+            h4 Información básica
+        
+    md-list
+        md-list-item.md-2-line
+            .md-list-item-text
+                h4 {{usuario.nombre}}
+                p Nombre
+        md-list-item.md-2-line
+            .md-list-item-text
+                h4 {{usuario.correo}}
+                p Correo
