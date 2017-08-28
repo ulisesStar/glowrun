@@ -17,21 +17,19 @@ ex.crearCliente = function(req, res, next) {
 
 	conekta.Customer.create({
 		name: data.nombre,
-		email: data.correo,
-		payment_sources: [
-			{
-				token_id: 'tok_test_visa_4242',
-				type: 'card'
-			}
-		]
+		email: data.correo
 	}, function(err, customer) {
+        console.log(customer);
 		res.status(200).jsonp(customer);
 		usuario.find({
 			where: {
 				correo: data.correo
 			}
 		}).then(function(usuario) {
-			usuario.updateAttributes({customer_id: customer._id})
+
+			usuario.updateAttributes({conekta_id: customer._id}).then(function(data){
+                console.log(data);
+            })
 		})
 	});
 

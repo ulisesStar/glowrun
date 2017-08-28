@@ -7,6 +7,11 @@ var config = require('../../conf/oauth.js');
 var usuario = db.usuario;
 var secret  = 'Glowing';
 
+var conekta = require('conekta');
+conekta.api_key = 'key_g3myyeP1cwedgPZJWiiVaA';
+conekta.api_version = '2.0.0';
+conekta.locale = 'es';
+
 var ex = module.exports = {};
 
 passport.serializeUser(function(user, done) {
@@ -197,7 +202,12 @@ passport.use('registro', new localStrategy({
             } else {
 
                 var data = req.body;
+
+                console.log('si esta sucediendo1')
+
                 usuario.create(data).then(function(user) {
+
+
                     return done(null, user);
 
                 }, function(err) {
@@ -258,6 +268,20 @@ passport.use('facebook', new FacebookStrategy({
                 }
 
                 usuario.create(nuevousuario).then(function(user) {
+
+                    conekta.Customer.create({
+                		name: nombre,
+                		email: correo
+                	}, function(err, customer) {
+                		usuario.find({
+                			where: {
+                				correo: correo
+                			}
+                		}).then(function(usuarioconekta) {
+                			usuarioconekta.updateAttributes({conekta_id: customer._id})
+                		})
+                	});
+
 
                     return done(null, user);
 
