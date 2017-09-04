@@ -29,11 +29,11 @@ ex.read = function (req, res, next) {
 
     if (id) {
         patrocinadores.findById(id, {
-            include: [{
-                model: carrera,
-                as: 'Carreras'
-            }]
-        })
+                include: [{
+                    model: carrera,
+                    as: 'Carreras'
+                }]
+            })
             .then(function (patrocinadores) {
                 res.status(200).jsonp(patrocinadores);
             });
