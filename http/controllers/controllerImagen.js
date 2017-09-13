@@ -55,6 +55,8 @@ ex.delete = function(req, res, next) {
     });
 };
 
+
+
 ex.borrarPortadas = function(req, res, next) {
 
     var id = req.params.IdCarrera;

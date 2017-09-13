@@ -1,41 +1,46 @@
 var app = angular.module('myapp');
 
-app.controller('ordenCtrl', function (Usuario, $scope, $localStorage, $rootScope, $filter, $mdDialog,mdDialog, $timeout, $mdSidenav, $state, $stateParams, Pagos, Carreras, Orden) {
+app.controller('ordenCtrl', function(Usuario, $scope, $localStorage, $rootScope, $filter, $mdDialog, mdDialog, $timeout, $mdSidenav, $state, $stateParams, Pagos, Carreras, Orden) {
 
-    var id = $stateParams.carrera.id;
-    var idUsuario = $localStorage.id.id;
+    if ($stateParams.carrera === null) {
+        $state.go('home')
+    } else {
 
-    Usuario.obtener(idUsuario).then(function(data){
-        $scope.usuario = data;
-        console.log(data);
-    })
+        var id = $stateParams.carrera.id;
+        var idUsuario = $localStorage.id.id;
 
-    Carreras.obtenerCarrera(id).then(function(data){
-        $scope.carrera = data[0];
-    })
+        Usuario.obtener(idUsuario).then(function(data) {
+            $scope.usuario = data;
+            console.log(data);
+        })
 
-    $scope.GenerarOrden = function(tarjeta, usuario, carrera) {
+        Carreras.obtenerCarrera(id).then(function(data) {
+            $scope.carrera = data;
+        })
 
-        $scope.procesando = true;
+        $scope.GenerarOrden = function(tarjeta, usuario, carrera) {
 
-        Pagos.crearToken(tarjeta, usuario.conekta_id).then(function(data) {
+            $scope.procesando = true;
 
-            var peticion = {
-                tarjeta: data,
-                usuario: usuario,
-                carrera: carrera
-            }
+            Pagos.crearToken(tarjeta, usuario.conekta_id).then(function(data) {
 
-            console.log(peticion);
+                var peticion = {
+                    tarjeta: data,
+                    usuario: usuario,
+                    carrera: carrera
+                }
 
-            Orden.crear(peticion).then(function(data){
-				console.log(data);
-                $scope.procesando = false;
-                $state.go('pagos')
+                console.log(peticion);
 
-            })
+                Orden.crear(peticion).then(function(data) {
+                    console.log(data);
+                    $scope.procesando = false;
+                    $state.go('pagos')
 
-        });
+                })
+
+            });
+        }
     }
 
 });

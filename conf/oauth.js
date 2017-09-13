@@ -2,7 +2,7 @@ var ids = {
 	facebook:{
 		clientID: '187706055103061',
 		clientSecret: 'ffc78182bf9e341a5da591d84f5ff058',
-		callbackURL: 'http://35.193.21.120:8080/login/facebook/callback'
+		callbackURL: 'http://localhost:8080/login/facebook/callback'
 	},
 	Conekta: {
 		api_key: 'key_g3myyeP1cwedgPZJWiiVaA',

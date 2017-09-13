@@ -65,5 +65,21 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
                 }
             ]
         }
+	})
+	.state('nosotros', {
+		url: '/nosotros',
+		views: {
+			'main': {
+				templateUrl: '/main/nosotros'
+			}
+		}
+	})
+	.state('terminosycondiciones', {
+		url: '/terminosycondiciones',
+		views: {
+			'main': {
+				templateUrl: '/main/terminosycondiciones'
+			}
+		}
 	});
 }]);

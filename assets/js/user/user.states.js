@@ -24,6 +24,7 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
 				Token.setadd(das[1])
 				AuthService.set(das[1]).then(function(data){
 					$localStorage.id = data;
+					$window.location.pathname = '/user';
 				})
 			},
             loadMyCtrl: [

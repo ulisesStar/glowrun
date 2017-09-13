@@ -1,9 +1,9 @@
 .orden(layout="row" layout-align="center center" ng-init="obtenerTodo()")
-	.div(flex="70" layout="column")
+	.div(flex="70" flex-xs="90" flex-sm="90" layout="column")
 		
 		.encabezado
 			h1 {{usuario.nombre}} estas apunto de registarte a la carrera
-			div(layout="row" layout-align="space-between center")
+			div(layout="row" layout-xs="column" layout-sm="column" layout-align="space-between center")
 				.carrera
 					p {{carrera.nombre}} el {{carrera.fecha | date:'yyyy-MM-dd HH:mm:ss' }}
 				.precio

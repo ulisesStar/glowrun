@@ -1,7 +1,7 @@
 #{name}
 
 .home(layout="row")
-	.right(flex)
+	.right(flex hide-xs hide-sm)
 		.right-content
 			.encabezado
 				h1 Dashboard
@@ -37,7 +37,7 @@
 			.encabezado
 				h1 Proximas Carreras
 			md-progress-linear(md-mode="indeterminate" ng-disabled="!loadingcarreras" ng-if="loadingcarreras")
-			md-list(ng-if="!loadingcarreras")
+			md-list
 				md-list-item(ng-repeat="carrera in proximos" ng-click="irOrden(carrera)")
 					h4 {{carrera.nombre}}
 				.md-secondary

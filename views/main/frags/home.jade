@@ -1,24 +1,25 @@
-section.section1(layout="row" layout-align="center center" style="background-image:url(img/20155871_862061647291740_5678529796270798499_n.png)")
-    .left(layout-fill)
-    .right(layout-fill layout="row" layout-align="center center")
-        .texto-container
-            h1 Una experiencia única
-            md-button.glowboton(ng-click="iniciosesion($event)") encuentra tu carrera e inscribete
-md-divider
-section.section2(layout="row")
-    .left(flex="50" layout="row" layout-align="center center")
-        .texto-container
-            h1 3 años haciendo recoriendo mexico
-            md-button.glowboton(ng-click="iraCarreras()") Carreras
-    .right(flex)
-        div(layout-fill)
-            ui-gmap-google-map(center='map.center' zoom='map.zoom' options="options")
-                ui-gmap-marker(coords="marker.coordenadas" options="markeroptions" idkey="$index" ng-repeat="marker in markers")
-                    ui-gmap-window(isIconVisibleOnClick="true")
-                        p algo
-md-divider
-section.section3(layout="row")
-    .video-container(layout="column")
-        md-button
-            md-icon
-        h4 Reproduce el video
+.home
+    section.section1(layout="row" layout-align="center center" style="background-image:url(img/20155871_862061647291740_5678529796270798499_n.png)")
+        .left(layout-fill flex="50" hide-xs)
+        .right(layout-fill layout="row" layout-align="center center")
+            .texto-container
+                h1 Una experiencia única
+                md-button.glowboton(ng-click="iniciosesion($event)") encuentra tu carrera e inscribete
+    md-divider
+    section.section2(layout="row" layout-xs="column")
+        .left(flex flex-xs="100" layout="row" layout-align="center center")
+            .texto-container
+                h1 3 años haciendo recoriendo mexico
+                md-button.glowboton(ng-click="iraCarreras()") Carreras
+        .right(flex flex-xs="50")
+            div(layout-fill)
+                ui-gmap-google-map(center='map.center' zoom='map.zoom' options="options")
+                    ui-gmap-marker(coords="marker.coordenadas" options="markeroptions" idkey="$index" ng-repeat="marker in markers")
+                        ui-gmap-window(isIconVisibleOnClick="true")
+                            p algo
+    md-divider
+    section.section3(layout="row")
+        .video-container(layout="column")
+            md-button
+                md-icon
+            h4 Reproduce el video

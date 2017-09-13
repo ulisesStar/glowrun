@@ -14,19 +14,19 @@ app.controller('homeCtrl', function (Usuario, $localStorage, $scope, $rootScope,
 
     $scope.fechaActual =  new Date();
     var fechaactual = formato($scope.fechaActual)
+    console.log(fechaactual);
 
     $loadingcarreras = true;
 
     $scope.obtenerCarreras = function(data){
         Carreras.obtenerCarrerasconPortada().then(function(data){
-
+			console.log(data);
             data.forEach(function(carrera){
 
                 let fecha = formato(carrera.fecha)
-                console.log(fecha);
 
-                if(fecha > fechaactual){
-
+                // Esto puede ser un error
+                if(fecha < fechaactual){
                     $scope.proximos.push(carrera);
                 }else{
                     $scope.anteriores.push(carrera);
@@ -34,7 +34,6 @@ app.controller('homeCtrl', function (Usuario, $localStorage, $scope, $rootScope,
             })
 
             $scope.carreras = data;
-
             $loadingcarreras = true;
 
             console.log($scope.proximos);

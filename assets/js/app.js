@@ -17,11 +17,13 @@ app.config(function($mdThemingProvider) {
 app.config(
     ['uiGmapGoogleMapApiProvider', function(GoogleMapApiProviders) {
         GoogleMapApiProviders.configure({
-            china: true
+            china: true,
+            key: 'AIzaSyDjJX9TR8uQ8gpRnH53PI9WAiedNXW8t_4',
+            v: '3.20',
+            libraries: 'weather,geometry,visualization',
         });
     }]
 );
-
 
 app.run(function($rootScope, $transitions, $state) {
     $transitions.onStart({}, trans => {

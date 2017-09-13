@@ -21,6 +21,28 @@ h1 {
 .angular-google-map-container {
   height: 100%;
 }
+@media (max-width: 600px) {
+  header img {
+    width: 100px !important;
+  }
+}
+@media (max-width: 600px) {
+  md-dialog {
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+}
+@media (max-width: 600px) {
+  .home .texto-container {
+    width: 95% !important;
+  }
+  .home .texto-container .md-button {
+    font-size: 15px;
+    background-color: #fff;
+    color: #000;
+    border: 0px !important;
+  }
+}
 .carreras {
   padding-top: 20vh;
 }
@@ -100,6 +122,15 @@ md-grid-list md-grid-tile p {
 .carrera section .right iframe {
   height: 100%;
   width: 100%;
+}
+.terminosycondiciones {
+  height: 100%;
+  width: 100%;
+}
+.terminosycondiciones .titulo h2 {
+  padding: 5%;
+  color: #fff;
+  font-size: 40px;
 }
 md-dialog.menu {
   width: 100vw;

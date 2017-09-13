@@ -2,9 +2,9 @@
 
     div(layout="row" layout-align="center center")
     
-        div(layout="row" flex="70")
+        div(layout="row" flex="70" flex-xs="90" flex-sm="90")
 
-            md-autocomplete(flex="70"
+            md-autocomplete(flex="100" flex-xs="100" flex-sm="100"
 
             ng-disabled="ctrl.isDisabled"
             md-no-cache="ctrl.noCache"
@@ -25,7 +25,7 @@
                 md-item-template
                     span {{item.fecha}} - {{item.nombre}}
                     
-            md-autocomplete(flex="30"
+            md-autocomplete(flex="30" hide
 
             ng-disabled="ctrl.isDisabled"
             md-no-cache="ctrl.noCache"
@@ -47,12 +47,12 @@
                     span {{item.fecha}} - {{item.nombre}}
             
     div(layout="row" layout-align="center center")
-        .contenido(flex="70")
+        .contenido(flex="70" flex-xs="90" flex-sm="90")
         
             h2(ng-class="loading ? 'loading' : 'sinloading'") Proximos
             md-progress-linear(md-mode="indeterminate" ng-disabled="!loading" ng-if="loading")
                         
-            md-grid-list(md-cols="4" md-row-height="200px")
+            md-grid-list(md-cols="4" md-cols-xs="1" md-cols-sm="1" md-row-height="200px")
                 md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="carrera in proximos  | filter: ctrl.Buscar" style="background-image:url({{carrera.imagenes[0].imagen}})" ng-click="irCarrera(carrera)" ng-init="hover = false"  ng-mouseover="hover = true" ng-mouseleave="hover = false"  ng-class="hover ? 'conHover' : 'sinHover'")
                     .content
                         h1 {{carrera.nombre}}
@@ -61,7 +61,7 @@
             h2 Anteriores carreras
             md-progress-linear(md-mode="indeterminate" ng-disabled="!loading" ng-if="loading")
                         
-            md-grid-list(md-cols="4" md-row-height="200px")
+            md-grid-list(md-cols="4" md-cols-xs="1" md-cols-sm="1"  md-row-height="200px")
                 md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="carrera in anteriores  | filter: ctrl.Buscar" style="background-image:url({{carrera.imagenes[0].imagen}})" ng-click="irCarrera(carrera)" ng-init="hover = false"  ng-mouseover="hover = true" ng-mouseleave="hover = false"  ng-class="hover ? 'conHover' : 'sinHover'")
                     .content
                         h1 {{carrera.nombre}}

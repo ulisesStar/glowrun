@@ -1,7 +1,5 @@
 app.service('Usuario', function($http, alertas, $q) {
-
     var deferred = $q.defer();
-
     this.obtener = function(id){
 
         $http.get('/data/usuario/' + id)
@@ -11,10 +9,8 @@ app.service('Usuario', function($http, alertas, $q) {
         .error(function(data){
             deferred.reject(data);
         })
-
         return deferred.promise;
     }
-
 });
 
 app.service('Patrocinadores', function($http, alertas, $q) {
@@ -134,9 +130,7 @@ app.service('Usuarios', function($http, alertas, $q) {
         .error(function(data){
 
         })
-
         return deferred.promise;
-
     }
 
 });
@@ -203,6 +197,7 @@ app.service('Carreras', function($http, alertas, $q) {
     }
 
     this.obtenerCarrera = function(id){
+		var deferred = $q.defer();
         $http.get('/data/Carreras/' + id)
         .success(function(data){
 			console.log(data);

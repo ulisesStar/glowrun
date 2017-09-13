@@ -1,6 +1,8 @@
 var app = angular.module('myapp');
 
-app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDialog, $timeout, $mdSidenav, $state, $stateParams, Ciudades, Carreras, Imagenes) {
+app.controller('homeCtrl', function($scope,$mdMedia, $rootScope, $http, $mdDialog, mdDialog, $timeout, $mdSidenav, $state, $stateParams, Ciudades, Carreras, Imagenes) {
+
+	console.log($mdMedia)
 
     $(function() {
         $.scrollify({section: "section"});
